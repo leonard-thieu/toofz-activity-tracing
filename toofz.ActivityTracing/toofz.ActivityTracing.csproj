@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <RootNamespace>toofz</RootNamespace>
+    <Authors>Leonard Thieu</Authors>
+    <PackageProjectUrl>https://github.com/leonard-thieu/toofz-activity-tracing</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/leonard-thieu/toofz-activity-tracing/blob/a3d107944d43f65dd280a14c3a4f0eaf58afd425/LICENSE</PackageLicenseUrl>
+    <PackageIconUrl>https://user-images.githubusercontent.com/5265970/29717713-27e1a95c-897e-11e7-9d28-dae64be705b5.png</PackageIconUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard2.0\toofz.ActivityTracing.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Humanizer.Core" Version="2.2.0" />
+    <PackageReference Include="log4net" Version="2.0.8" />
+  </ItemGroup>
+
+</Project>
