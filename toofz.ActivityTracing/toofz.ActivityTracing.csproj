@@ -4,6 +4,7 @@
     <TargetFramework>netstandard1.3</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <RootNamespace>toofz</RootNamespace>
+    <Version>1.0.1</Version>
     <Authors>Leonard Thieu</Authors>
     <PackageProjectUrl>https://github.com/leonard-thieu/toofz-activity-tracing</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/leonard-thieu/toofz-activity-tracing/blob/a3d107944d43f65dd280a14c3a4f0eaf58afd425/LICENSE</PackageLicenseUrl>
