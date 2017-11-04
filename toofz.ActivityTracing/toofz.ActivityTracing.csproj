@@ -4,7 +4,7 @@
     <TargetFramework>netstandard1.3</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <RootNamespace>toofz</RootNamespace>
-    <PackageVersion>1.0.1</PackageVersion>
+    <PackageVersion>1.0.2</PackageVersion>
     <Authors>Leonard Thieu</Authors>
     <Title>toofz Activity Tracing</Title>
     <Description>Provides types for activity tracing.</Description>
