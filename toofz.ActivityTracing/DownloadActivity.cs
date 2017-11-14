@@ -25,8 +25,7 @@ namespace toofz
 
         public override void Dispose()
         {
-            if (disposed)
-                return;
+            if (disposed) { return; }
 
             var byteSize = totalBytes.Bytes();
             var elapsed = Stopwatch.Elapsed;

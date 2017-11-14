@@ -24,8 +24,7 @@ namespace toofz
 
         public override void Dispose()
         {
-            if (disposed)
-                return;
+            if (disposed) { return; }
 
             var rows = RowsAffected;
             var total = Stopwatch.Elapsed.TotalSeconds;

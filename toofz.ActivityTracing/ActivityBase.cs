@@ -27,8 +27,7 @@ namespace toofz
 
         public virtual void Dispose()
         {
-            if (disposed)
-                return;
+            if (disposed) { return; }
 
             Log.Debug($"End {Category} {Name}");
 

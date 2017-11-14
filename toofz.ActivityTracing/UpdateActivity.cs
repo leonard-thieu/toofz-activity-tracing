@@ -15,8 +15,7 @@ namespace toofz
 
         public override void Dispose()
         {
-            if (disposed)
-                return;
+            if (disposed) { return; }
 
             var duration = Stopwatch.Elapsed.TotalSeconds.ToString("F1", CultureInfo.CurrentCulture);
             Log.Info($"{Category} {Name} complete after {duration} s.");
