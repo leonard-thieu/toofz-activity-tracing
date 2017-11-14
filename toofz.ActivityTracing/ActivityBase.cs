@@ -7,7 +7,7 @@ namespace toofz
     {
         internal ActivityBase(string category, ILog log, string name, IStopwatch stopwatch)
         {
-            Category = category ?? throw new ArgumentNullException(nameof(category));
+            Category = category;
             Log = log ?? throw new ArgumentNullException(nameof(log));
             Name = name ?? throw new ArgumentNullException(nameof(name));
             Stopwatch = stopwatch ?? StopwatchAdapter.StartNew();

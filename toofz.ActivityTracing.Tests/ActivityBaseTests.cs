@@ -10,22 +10,6 @@ namespace toofz.Tests
         public class Constructor
         {
             [Fact]
-            public void CategoryIsNull_ThrowsArgumentNullException()
-            {
-                // Arrange
-                string category = null;
-                var log = Mock.Of<ILog>();
-                var name = "myName";
-                var stopwatch = Mock.Of<IStopwatch>();
-
-                // Act -> Assert
-                Assert.Throws<ArgumentNullException>(() =>
-                {
-                    new ActivityBaseAdapter(category, log, name, stopwatch);
-                });
-            }
-
-            [Fact]
             public void LogIsNull_ThrowsArgumentNullException()
             {
                 // Arrange
