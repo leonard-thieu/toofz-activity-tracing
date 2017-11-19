@@ -8,7 +8,7 @@
 
   <PropertyGroup>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-    <PackageVersion>1.0.2</PackageVersion>
+    <PackageVersion>1.0.3</PackageVersion>
     <Authors>Leonard Thieu</Authors>
     <Title>toofz Activity Tracing</Title>
     <Description>Provides types for activity tracing.</Description>
