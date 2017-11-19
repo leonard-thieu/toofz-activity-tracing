@@ -4,6 +4,9 @@
     <TargetFramework>netstandard1.3</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <RootNamespace>toofz</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <PackageVersion>1.0.2</PackageVersion>
     <Authors>Leonard Thieu</Authors>
     <Title>toofz Activity Tracing</Title>
