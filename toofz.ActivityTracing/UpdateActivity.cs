@@ -7,7 +7,10 @@ namespace toofz
     {
         public UpdateActivity(ILog log, string name) : this(log, name, null) { }
 
-        internal UpdateActivity(ILog log, string name, IStopwatch stopwatch) : base("Update", log, name, stopwatch) { }
+        internal UpdateActivity(ILog log, string name, IStopwatch stopwatch) : base("Update", log, name, stopwatch)
+        {
+            Log.Info($"{Category} {name} starting...");
+        }
 
         #region IDisposable Members
 
