@@ -7,6 +7,19 @@ namespace toofz.Tests
 {
     public class ActivityBaseTests
     {
+        public ActivityBaseTests()
+        {
+            mockLog.Setup(l => l.IsDebugEnabled).Returns(true);
+
+            activity = new ActivityBaseAdapter(category, mockLog.Object, name, mockStopwatch.Object);
+        }
+
+        private readonly string category = "myCategory";
+        private readonly Mock<ILog> mockLog = new Mock<ILog>();
+        private readonly string name = "myName";
+        private readonly Mock<IStopwatch> mockStopwatch = new Mock<IStopwatch>();
+        private readonly ActivityBaseAdapter activity;
+
         public class Constructor
         {
             [Fact]
@@ -79,6 +92,7 @@ namespace toofz.Tests
                 // Arrange
                 var category = "myCategory";
                 var mockLog = new Mock<ILog>();
+                mockLog.Setup(l => l.IsDebugEnabled).Returns(true);
                 var log = mockLog.Object;
                 var name = "myName";
                 var stopwatch = Mock.Of<IStopwatch>();
@@ -91,20 +105,12 @@ namespace toofz.Tests
             }
         }
 
-        public class DisposeMethod
+        public class DisposeMethod : ActivityBaseTests
         {
             [Fact]
             public void LogsEndMessage()
             {
-                // Arrange
-                var category = "myCategory";
-                var mockLog = new Mock<ILog>();
-                var log = mockLog.Object;
-                var name = "myName";
-                var stopwatch = Mock.Of<IStopwatch>();
-                var activity = new ActivityBaseAdapter(category, log, name, stopwatch);
-
-                // Act
+                // Arrange -> Act
                 activity.Dispose();
 
                 // Assert
@@ -114,15 +120,7 @@ namespace toofz.Tests
             [Fact]
             public void DisposingMoreThanOnce_OnlyLogsEndMessageOnce()
             {
-                // Arrange
-                var category = "myCategory";
-                var mockLog = new Mock<ILog>();
-                var log = mockLog.Object;
-                var name = "myName";
-                var stopwatch = Mock.Of<IStopwatch>();
-                var activity = new ActivityBaseAdapter(category, log, name, stopwatch);
-
-                // Act
+                // Arrange -> Act
                 activity.Dispose();
                 activity.Dispose();
 

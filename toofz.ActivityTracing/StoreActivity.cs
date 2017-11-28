@@ -26,11 +26,14 @@ namespace toofz
         {
             if (disposed) { return; }
 
-            var rows = RowsAffected;
-            var total = Stopwatch.Elapsed.TotalSeconds;
-            var rate = (rows / total).ToString("F0");
+            if (Log.IsInfoEnabled)
+            {
+                var rows = RowsAffected;
+                var total = Stopwatch.Elapsed.TotalSeconds;
+                var rate = (rows / total).ToString("F0");
 
-            Log.Info($"{Category} {Name} complete -- {rows} rows affected over {total.ToString("F1")} seconds ({rate} rows per second).");
+                Log.Info($"{Category} {Name} complete -- {rows} rows affected over {total.ToString("F1")} seconds ({rate} rows per second).");
+            }
 
             disposed = true;
 

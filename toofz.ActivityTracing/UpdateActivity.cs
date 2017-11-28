@@ -9,7 +9,7 @@ namespace toofz
 
         internal UpdateActivity(ILog log, string name, IStopwatch stopwatch) : base("Update", log, name, stopwatch)
         {
-            Log.Info($"{Category} {name} starting...");
+            if (Log.IsInfoEnabled) { Log.Info($"{Category} {name} starting..."); }
         }
 
         #region IDisposable Members
@@ -20,8 +20,11 @@ namespace toofz
         {
             if (disposed) { return; }
 
-            var duration = Stopwatch.Elapsed.TotalSeconds.ToString("F1", CultureInfo.CurrentCulture);
-            Log.Info($"{Category} {Name} complete after {duration} s.");
+            if (Log.IsInfoEnabled)
+            {
+                var duration = Stopwatch.Elapsed.TotalSeconds.ToString("F1", CultureInfo.CurrentCulture);
+                Log.Info($"{Category} {Name} complete after {duration} s.");
+            }
 
             disposed = true;
 

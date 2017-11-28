@@ -7,6 +7,18 @@ namespace toofz.Tests
 {
     public class DownloadActivityTests
     {
+        public DownloadActivityTests()
+        {
+            mockLog.Setup(l => l.IsInfoEnabled).Returns(true);
+
+            activity = new DownloadActivity(mockLog.Object, name, mockStopwatch.Object);
+        }
+
+        private readonly Mock<ILog> mockLog = new Mock<ILog>();
+        private readonly string name = "leaderboards";
+        private readonly Mock<IStopwatch> mockStopwatch = new Mock<IStopwatch>();
+        private readonly DownloadActivity activity;
+
         public class Constructor
         {
             [Fact]
@@ -24,15 +36,12 @@ namespace toofz.Tests
             }
         }
 
-        public class TotalBytesProperty
+        public class TotalBytesProperty : DownloadActivityTests
         {
             [Fact]
             public void ReturnsTotalBytes()
             {
                 // Arrange
-                var log = Mock.Of<ILog>();
-                var name = "leaderboards";
-                var activity = new DownloadActivity(log, name);
                 activity.Report(21);
                 activity.Report(21);
 
@@ -44,17 +53,12 @@ namespace toofz.Tests
             }
         }
 
-        public class ReportMethod
+        public class ReportMethod : DownloadActivityTests
         {
             [Fact]
             public void AddsValueToTotalBytes()
             {
-                // Arrange
-                var log = Mock.Of<ILog>();
-                var name = "myName";
-                var activity = new DownloadActivity(log, name);
-
-                // Act
+                // Arrange -> Act
                 activity.Report(1);
                 activity.Report(1);
 
@@ -63,18 +67,12 @@ namespace toofz.Tests
             }
         }
 
-        public class DisposeMethod
+        public class DisposeMethod : DownloadActivityTests
         {
             [Fact]
             public void LogsSizeTimeAndRate()
             {
                 // Arrange
-                var mockLog = new Mock<ILog>();
-                var log = mockLog.Object;
-                var name = "leaderboards";
-                var mockStopwatch = new Mock<IStopwatch>();
-                var stopwatch = mockStopwatch.Object;
-                var activity = new DownloadActivity(log, name, stopwatch);
                 activity.Report((long)(26.3).Megabytes().Bytes);
                 mockStopwatch.SetupGet(s => s.Elapsed).Returns((10.34).Seconds());
 
@@ -89,12 +87,6 @@ namespace toofz.Tests
             public void DisposingMoreThanOnce_LogsSizeTimeAndRateOnlyOnce()
             {
                 // Arrange
-                var mockLog = new Mock<ILog>();
-                var log = mockLog.Object;
-                var name = "leaderboards";
-                var mockStopwatch = new Mock<IStopwatch>();
-                var stopwatch = mockStopwatch.Object;
-                var activity = new DownloadActivity(log, name, stopwatch);
                 activity.Report((long)(26.3).Megabytes().Bytes);
                 mockStopwatch.SetupGet(s => s.Elapsed).Returns((10.34).Seconds());
 

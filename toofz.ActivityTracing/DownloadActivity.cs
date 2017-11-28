@@ -27,15 +27,18 @@ namespace toofz
         {
             if (disposed) { return; }
 
-            var byteSize = totalBytes.Bytes();
-            var elapsed = Stopwatch.Elapsed;
-            var byteRate = byteSize.Per(elapsed);
+            if (Log.IsInfoEnabled)
+            {
+                var byteSize = totalBytes.Bytes();
+                var elapsed = Stopwatch.Elapsed;
+                var byteRate = byteSize.Per(elapsed);
 
-            var size = byteSize.Humanize("#.#");
-            var time = elapsed.TotalSeconds.ToString("F1");
-            var rate = byteRate.Humanize("#.#").Replace("/", "p");
+                var size = byteSize.Humanize("#.#");
+                var time = elapsed.TotalSeconds.ToString("F1");
+                var rate = byteRate.Humanize("#.#").Replace("/", "p");
 
-            Log.Info($"{Category} {Name} complete -- {size} over {time} seconds ({rate}).");
+                Log.Info($"{Category} {Name} complete -- {size} over {time} seconds ({rate}).");
+            }
 
             disposed = true;
 

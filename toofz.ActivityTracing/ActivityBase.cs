@@ -12,7 +12,7 @@ namespace toofz
             Name = name ?? throw new ArgumentNullException(nameof(name));
             Stopwatch = stopwatch ?? StopwatchAdapter.StartNew();
 
-            Log.Debug($"Start {Category} {Name}");
+            if (Log.IsDebugEnabled) { Log.Debug($"Start {Category} {Name}"); }
         }
 
         protected string Category { get; }
@@ -29,7 +29,7 @@ namespace toofz
         {
             if (disposed) { return; }
 
-            Log.Debug($"End {Category} {Name}");
+            if (Log.IsDebugEnabled) { Log.Debug($"End {Category} {Name}"); }
 
             disposed = true;
         }

@@ -7,6 +7,18 @@ namespace toofz.Tests
 {
     public class StoreActivityTests
     {
+        public StoreActivityTests()
+        {
+            mockLog.Setup(l => l.IsInfoEnabled).Returns(true);
+
+            activity = new StoreActivity(mockLog.Object, name, mockStopwatch.Object);
+        }
+
+        private readonly Mock<ILog> mockLog = new Mock<ILog>();
+        private readonly string name = "entries";
+        private readonly Mock<IStopwatch> mockStopwatch = new Mock<IStopwatch>();
+        private readonly StoreActivity activity;
+
         public class Constructor
         {
             [Fact]
@@ -24,15 +36,12 @@ namespace toofz.Tests
             }
         }
 
-        public class RowsAffectedProperty
+        public class RowsAffectedProperty : StoreActivityTests
         {
             [Fact]
             public void ReturnsRowsAffected()
             {
                 // Arrange
-                var log = Mock.Of<ILog>();
-                var name = "myName";
-                var activity = new StoreActivity(log, name);
                 activity.Report(20);
 
                 // Act
@@ -43,17 +52,12 @@ namespace toofz.Tests
             }
         }
 
-        public class ReportMethod
+        public class ReportMethod : StoreActivityTests
         {
             [Fact]
             public void AddsValueToRowsAffected()
             {
-                // Arrange
-                var log = Mock.Of<ILog>();
-                var name = "myName";
-                var activity = new StoreActivity(log, name);
-
-                // Act
+                // Arrange -> Act
                 activity.Report(1);
                 activity.Report(1);
 
@@ -62,18 +66,12 @@ namespace toofz.Tests
             }
         }
 
-        public class DisposeMethod
+        public class DisposeMethod : StoreActivityTests
         {
             [Fact]
             public void LogsCompletionMessage()
             {
                 // Arrange
-                var mockLog = new Mock<ILog>();
-                var log = mockLog.Object;
-                var name = "entries";
-                var mockStopwatch = new Mock<IStopwatch>();
-                var stopwatch = mockStopwatch.Object;
-                var activity = new StoreActivity(log, name, stopwatch);
                 activity.Report(759225);
                 mockStopwatch.SetupGet(s => s.Elapsed).Returns((6.42).Seconds());
 
@@ -88,12 +86,6 @@ namespace toofz.Tests
             public void DisposingMoreThanOnce_OnlyLogsCompletionMessageOnce()
             {
                 // Arrange
-                var mockLog = new Mock<ILog>();
-                var log = mockLog.Object;
-                var name = "entries";
-                var mockStopwatch = new Mock<IStopwatch>();
-                var stopwatch = mockStopwatch.Object;
-                var activity = new StoreActivity(log, name, stopwatch);
                 activity.Report(759225);
                 mockStopwatch.SetupGet(s => s.Elapsed).Returns((6.42).Seconds());
 

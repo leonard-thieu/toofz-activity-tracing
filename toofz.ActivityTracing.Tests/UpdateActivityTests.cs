@@ -7,6 +7,18 @@ namespace toofz.Tests
 {
     public class UpdateActivityTests
     {
+        public UpdateActivityTests()
+        {
+            mockLog.Setup(l => l.IsInfoEnabled).Returns(true);
+
+            activity = new UpdateActivity(mockLog.Object, name, mockStopwatch.Object);
+        }
+
+        private readonly Mock<ILog> mockLog = new Mock<ILog>();
+        private readonly string name = "daily leaderboards";
+        private readonly Mock<IStopwatch> mockStopwatch = new Mock<IStopwatch>();
+        private readonly UpdateActivity activity;
+
         public class Constructor
         {
             [Fact]
@@ -24,18 +36,12 @@ namespace toofz.Tests
             }
         }
 
-        public class DisposeMethod
+        public class DisposeMethod : UpdateActivityTests
         {
             [Fact]
             public void LogsCompletionMessage()
             {
                 // Arrange
-                var mockLog = new Mock<ILog>();
-                var log = mockLog.Object;
-                var name = "daily leaderboards";
-                var mockStopwatch = new Mock<IStopwatch>();
-                var stopwatch = mockStopwatch.Object;
-                var activity = new UpdateActivity(log, name, stopwatch);
                 mockStopwatch.SetupGet(s => s.Elapsed).Returns((13.2).Seconds());
 
                 // Act
@@ -49,12 +55,6 @@ namespace toofz.Tests
             public void DisposingMoreThanOnce_OnlyLogsCompletionMessageOnce()
             {
                 // Arrange
-                var mockLog = new Mock<ILog>();
-                var log = mockLog.Object;
-                var name = "daily leaderboards";
-                var mockStopwatch = new Mock<IStopwatch>();
-                var stopwatch = mockStopwatch.Object;
-                var activity = new UpdateActivity(log, name, stopwatch);
                 mockStopwatch.SetupGet(s => s.Elapsed).Returns((13.2).Seconds());
 
                 // Act
