@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "toofz.ActivityTracing", "toofz.ActivityTracing\toofz.ActivityTracing.csproj", "{A54137DC-6609-4105-A74B-83108C9E23D1}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "toofz.ActivityTracing.Tests", "toofz.ActivityTracing.Tests\toofz.ActivityTracing.Tests.csproj", "{FCFB8985-4B5E-4ABB-9A39-1268E5EE8378}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{38FDEC3B-42F5-4408-A94D-9631DA616FCB}"
 	ProjectSection(SolutionItems) = preProject
 		appveyor.yml = appveyor.yml
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "toofz.ActivityTracing", "toofz.ActivityTracing\toofz.ActivityTracing.csproj", "{A54137DC-6609-4105-A74B-83108C9E23D1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "toofz.ActivityTracing.Tests", "toofz.ActivityTracing.Tests\toofz.ActivityTracing.Tests.csproj", "{FCFB8985-4B5E-4ABB-9A39-1268E5EE8378}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
