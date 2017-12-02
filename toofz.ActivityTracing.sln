@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "toofz.ActivityTracing", "toofz.ActivityTracing\toofz.ActivityTracing.csproj", "{A54137DC-6609-4105-A74B-83108C9E23D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "toofz.ActivityTracing.Tests", "toofz.ActivityTracing.Tests\toofz.ActivityTracing.Tests.csproj", "{FCFB8985-4B5E-4ABB-9A39-1268E5EE8378}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "toofz.ActivityTracing.Tests", "toofz.ActivityTracing.Tests\toofz.ActivityTracing.Tests.csproj", "{FCFB8985-4B5E-4ABB-9A39-1268E5EE8378}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{38FDEC3B-42F5-4408-A94D-9631DA616FCB}"
 	ProjectSection(SolutionItems) = preProject
@@ -15,14 +15,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Coverage|Any CPU = Coverage|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A54137DC-6609-4105-A74B-83108C9E23D1}.Coverage|Any CPU.ActiveCfg = Coverage|Any CPU
+		{A54137DC-6609-4105-A74B-83108C9E23D1}.Coverage|Any CPU.Build.0 = Coverage|Any CPU
 		{A54137DC-6609-4105-A74B-83108C9E23D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A54137DC-6609-4105-A74B-83108C9E23D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A54137DC-6609-4105-A74B-83108C9E23D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A54137DC-6609-4105-A74B-83108C9E23D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCFB8985-4B5E-4ABB-9A39-1268E5EE8378}.Coverage|Any CPU.ActiveCfg = Coverage|Any CPU
+		{FCFB8985-4B5E-4ABB-9A39-1268E5EE8378}.Coverage|Any CPU.Build.0 = Coverage|Any CPU
 		{FCFB8985-4B5E-4ABB-9A39-1268E5EE8378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FCFB8985-4B5E-4ABB-9A39-1268E5EE8378}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCFB8985-4B5E-4ABB-9A39-1268E5EE8378}.Release|Any CPU.ActiveCfg = Release|Any CPU

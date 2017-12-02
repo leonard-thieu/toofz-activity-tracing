@@ -4,6 +4,7 @@
     <TargetFramework>netstandard1.3</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <RootNamespace>toofz</RootNamespace>
+    <Configurations>Debug;Release;Coverage</Configurations>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -22,6 +23,9 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>bin\Release\netstandard2.0\toofz.ActivityTracing.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Coverage|AnyCPU'">
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
@@ -29,6 +33,7 @@
   <ItemGroup>
     <PackageReference Include="Humanizer.Core" Version="2.2.0" />
     <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="SourceLink.Create.CommandLine" Version="2.6.0" PrivateAssets="All" Condition="'$(Configuration)'!='Coverage'" />
   </ItemGroup>
 
 </Project>
