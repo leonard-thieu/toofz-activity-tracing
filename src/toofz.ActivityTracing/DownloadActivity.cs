@@ -4,16 +4,31 @@ using log4net;
 
 namespace toofz
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public sealed class DownloadActivity : ProgressActivityBase<long>
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="log"></param>
+        /// <param name="name"></param>
         public DownloadActivity(ILog log, string name) : this(log, name, null) { }
 
         internal DownloadActivity(ILog log, string name, IStopwatch stopwatch) : base("Download", log, name, stopwatch) { }
 
         private long totalBytes;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public long TotalBytes => totalBytes;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
         public override void Report(long value)
         {
             Interlocked.Add(ref totalBytes, value);
@@ -23,6 +38,9 @@ namespace toofz
 
         private bool disposed;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public override void Dispose()
         {
             if (disposed) { return; }

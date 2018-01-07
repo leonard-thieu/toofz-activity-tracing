@@ -3,6 +3,9 @@ using log4net;
 
 namespace toofz
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public abstract class ActivityBase : IDisposable
     {
         internal ActivityBase(string category, ILog log, string name, IStopwatch stopwatch)
@@ -15,8 +18,17 @@ namespace toofz
             if (Log.IsDebugEnabled) { Log.Debug($"Start {Category} {Name}"); }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         protected string Category { get; }
+        /// <summary>
+        /// 
+        /// </summary>
         protected ILog Log { get; }
+        /// <summary>
+        /// 
+        /// </summary>
         protected string Name { get; }
 
         internal IStopwatch Stopwatch { get; }
@@ -25,6 +37,9 @@ namespace toofz
 
         private bool disposed;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public virtual void Dispose()
         {
             if (disposed) { return; }

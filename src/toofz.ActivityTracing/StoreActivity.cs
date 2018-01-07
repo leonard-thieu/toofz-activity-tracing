@@ -3,16 +3,31 @@ using log4net;
 
 namespace toofz
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public sealed class StoreActivity : ProgressActivityBase<long>
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="log"></param>
+        /// <param name="name"></param>
         public StoreActivity(ILog log, string name) : this(log, name, null) { }
 
         internal StoreActivity(ILog log, string name, IStopwatch stopwatch) : base("Store", log, name, stopwatch) { }
 
         private long rowsAffected;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public long RowsAffected => rowsAffected;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
         public override void Report(long value)
         {
             Interlocked.Add(ref rowsAffected, value);
@@ -22,6 +37,9 @@ namespace toofz
 
         private bool disposed;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public override void Dispose()
         {
             if (disposed) { return; }

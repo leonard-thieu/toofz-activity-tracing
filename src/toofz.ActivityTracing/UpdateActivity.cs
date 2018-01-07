@@ -3,8 +3,16 @@ using log4net;
 
 namespace toofz
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public sealed class UpdateActivity : ActivityBase
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="log"></param>
+        /// <param name="name"></param>
         public UpdateActivity(ILog log, string name) : this(log, name, null) { }
 
         internal UpdateActivity(ILog log, string name, IStopwatch stopwatch) : base("Update", log, name, stopwatch)
@@ -16,6 +24,9 @@ namespace toofz
 
         private bool disposed;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public override void Dispose()
         {
             if (disposed) { return; }
