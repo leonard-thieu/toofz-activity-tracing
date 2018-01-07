@@ -22,7 +22,7 @@ namespace toofz.Tests
 
         public class Constructor
         {
-            [Fact]
+            [DisplayFact(nameof(ArgumentNullException))]
             public void LogIsNull_ThrowsArgumentNullException()
             {
                 // Arrange
@@ -38,7 +38,7 @@ namespace toofz.Tests
                 });
             }
 
-            [Fact]
+            [DisplayFact(nameof(ArgumentNullException))]
             public void NameIsNull_ThrowsArgumentNullException()
             {
                 // Arrange
@@ -54,7 +54,7 @@ namespace toofz.Tests
                 });
             }
 
-            [Fact]
+            [DisplayFact(nameof(ActivityBase.Stopwatch), nameof(StopwatchAdapter))]
             public void StopwatchIsNull_SetsStopwatchToStopwatchAdapter()
             {
                 // Arrange
@@ -70,8 +70,8 @@ namespace toofz.Tests
                 Assert.IsAssignableFrom<StopwatchAdapter>(activity.Stopwatch);
             }
 
-            [Fact]
-            public void ReturnsInstance()
+            [DisplayFact(nameof(ActivityBase))]
+            public void ReturnsActivityBase()
             {
                 // Arrange
                 var category = "myCategory";
@@ -86,7 +86,7 @@ namespace toofz.Tests
                 Assert.IsAssignableFrom<ActivityBase>(activity);
             }
 
-            [Fact]
+            [DisplayFact]
             public void LogsStartMessage()
             {
                 // Arrange
@@ -107,7 +107,7 @@ namespace toofz.Tests
 
         public class DisposeMethod : ActivityBaseTests
         {
-            [Fact]
+            [DisplayFact]
             public void LogsEndMessage()
             {
                 // Arrange -> Act
@@ -117,7 +117,7 @@ namespace toofz.Tests
                 mockLog.Verify(l => l.Debug("End myCategory myName"));
             }
 
-            [Fact]
+            [DisplayFact]
             public void DisposingMoreThanOnce_OnlyLogsEndMessageOnce()
             {
                 // Arrange -> Act

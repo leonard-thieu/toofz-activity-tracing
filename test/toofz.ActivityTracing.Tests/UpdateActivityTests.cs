@@ -21,8 +21,8 @@ namespace toofz.Tests
 
         public class Constructor
         {
-            [Fact]
-            public void ReturnsInstance()
+            [DisplayFact(nameof(UpdateActivity))]
+            public void ReturnsUpdateActivity()
             {
                 // Arrange
                 var log = Mock.Of<ILog>();
@@ -38,7 +38,7 @@ namespace toofz.Tests
 
         public class DisposeMethod : UpdateActivityTests
         {
-            [Fact]
+            [DisplayFact]
             public void LogsCompletionMessage()
             {
                 // Arrange
@@ -51,7 +51,7 @@ namespace toofz.Tests
                 mockLog.Verify(l => l.Info("Update daily leaderboards complete after 13.2 s."));
             }
 
-            [Fact]
+            [DisplayFact]
             public void DisposingMoreThanOnce_OnlyLogsCompletionMessageOnce()
             {
                 // Arrange

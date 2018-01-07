@@ -21,8 +21,8 @@ namespace toofz.Tests
 
         public class Constructor
         {
-            [Fact]
-            public void ReturnsInstance()
+            [DisplayFact(nameof(StoreActivity))]
+            public void ReturnsStoreActivity()
             {
                 // Arrange
                 var log = Mock.Of<ILog>();
@@ -38,7 +38,7 @@ namespace toofz.Tests
 
         public class RowsAffectedProperty : StoreActivityTests
         {
-            [Fact]
+            [DisplayFact]
             public void ReturnsRowsAffected()
             {
                 // Arrange
@@ -54,7 +54,7 @@ namespace toofz.Tests
 
         public class ReportMethod : StoreActivityTests
         {
-            [Fact]
+            [DisplayFact]
             public void AddsValueToRowsAffected()
             {
                 // Arrange -> Act
@@ -68,7 +68,7 @@ namespace toofz.Tests
 
         public class DisposeMethod : StoreActivityTests
         {
-            [Fact]
+            [DisplayFact]
             public void LogsCompletionMessage()
             {
                 // Arrange
@@ -82,7 +82,7 @@ namespace toofz.Tests
                 mockLog.Verify(l => l.Info("Store entries complete -- 759225 rows affected over 6.4 seconds (118259 rows per second)."));
             }
 
-            [Fact]
+            [DisplayFact]
             public void DisposingMoreThanOnce_OnlyLogsCompletionMessageOnce()
             {
                 // Arrange

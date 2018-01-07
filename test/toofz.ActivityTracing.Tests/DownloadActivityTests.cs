@@ -21,8 +21,8 @@ namespace toofz.Tests
 
         public class Constructor
         {
-            [Fact]
-            public void ReturnsInstance()
+            [DisplayFact(nameof(DownloadActivity))]
+            public void ReturnsDownloadActivity()
             {
                 // Arrange
                 var log = Mock.Of<ILog>();
@@ -38,7 +38,7 @@ namespace toofz.Tests
 
         public class TotalBytesProperty : DownloadActivityTests
         {
-            [Fact]
+            [DisplayFact]
             public void ReturnsTotalBytes()
             {
                 // Arrange
@@ -55,7 +55,7 @@ namespace toofz.Tests
 
         public class ReportMethod : DownloadActivityTests
         {
-            [Fact]
+            [DisplayFact]
             public void AddsValueToTotalBytes()
             {
                 // Arrange -> Act
@@ -69,7 +69,7 @@ namespace toofz.Tests
 
         public class DisposeMethod : DownloadActivityTests
         {
-            [Fact]
+            [DisplayFact]
             public void LogsSizeTimeAndRate()
             {
                 // Arrange
@@ -83,7 +83,7 @@ namespace toofz.Tests
                 mockLog.Verify(l => l.Info("Download leaderboards complete -- 26.3 MB over 10.3 seconds (2.5 MBps)."));
             }
 
-            [Fact]
+            [DisplayFact]
             public void DisposingMoreThanOnce_LogsSizeTimeAndRateOnlyOnce()
             {
                 // Arrange

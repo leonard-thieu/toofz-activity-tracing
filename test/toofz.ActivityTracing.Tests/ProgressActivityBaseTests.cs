@@ -9,8 +9,8 @@ namespace toofz.Tests
     {
         public class Constructor
         {
-            [Fact]
-            public void ReturnsInstance()
+            [DisplayFact(nameof(ProgressActivityBase<int>))]
+            public void ReturnsProgressActivityBase()
             {
                 // Arrange
                 var category = "myCategory";

@@ -7,8 +7,8 @@ namespace toofz.Tests
     {
         public class StartNew
         {
-            [Fact]
-            public void ReturnsInstanceAndInstanceIsRunning()
+            [DisplayFact(nameof(StopwatchAdapter))]
+            public void ReturnsStartedStopwatchAdapter()
             {
                 // Arrange -> Act
                 var adapter = StopwatchAdapter.StartNew();
@@ -21,7 +21,7 @@ namespace toofz.Tests
 
         public class IsRunning
         {
-            [Fact]
+            [DisplayFact(nameof(Stopwatch.IsRunning), nameof(Stopwatch))]
             public void ReturnsIsRunningFromStopwatch()
             {
                 // Arrange
@@ -35,7 +35,7 @@ namespace toofz.Tests
 
         public class Elapsed
         {
-            [Fact]
+            [DisplayFact(nameof(Stopwatch.Elapsed), nameof(Stopwatch))]
             public void ReturnsElapsedFromStopwatch()
             {
                 // Arrange
@@ -50,7 +50,7 @@ namespace toofz.Tests
 
         public class ElapsedMilliseconds
         {
-            [Fact]
+            [DisplayFact(nameof(Stopwatch.ElapsedMilliseconds), nameof(Stopwatch))]
             public void ReturnsElapsedMillisecondsFromStopwatch()
             {
                 // Arrange
@@ -65,7 +65,7 @@ namespace toofz.Tests
 
         public class ElapsedTicks
         {
-            [Fact]
+            [DisplayFact(nameof(Stopwatch.ElapsedTicks), nameof(Stopwatch))]
             public void ReturnsElapsedTicksFromStopwatch()
             {
                 // Arrange
@@ -80,7 +80,7 @@ namespace toofz.Tests
 
         public class Reset
         {
-            [Fact]
+            [DisplayFact]
             public void StopsMeasuringAndResetsElapsedTimeToZero()
             {
                 // Arrange
@@ -97,7 +97,7 @@ namespace toofz.Tests
 
         public class Restart
         {
-            [Fact]
+            [DisplayFact]
             public void ResetsElapsedTimeAndStartsMeasuring()
             {
                 // Arrange
@@ -113,7 +113,7 @@ namespace toofz.Tests
 
         public class Start
         {
-            [Fact]
+            [DisplayFact]
             public void StartsMeasuring()
             {
                 // Arrange
@@ -130,7 +130,7 @@ namespace toofz.Tests
 
         public class Stop
         {
-            [Fact]
+            [DisplayFact]
             public void StopsMeasuring()
             {
                 // Arrange
