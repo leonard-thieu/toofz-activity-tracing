@@ -15,6 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\toofz.ActivityTracing\toofz.ActivityTracing.csproj" />
+    <ProjectReference Include="..\..\src\toofz.ActivityTracing\toofz.ActivityTracing.csproj" />
   </ItemGroup>
 </Project>
