@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RootNamespace>toofz.Tests</RootNamespace>
     <IsPackable>false</IsPackable>
-    <Configurations>Debug;Release;Coverage</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0" />
     <PackageReference Include="Moq" Version="4.7.142" />
+    <PackageReference Include="toofz.Build" Version="2.3.1" />
     <PackageReference Include="xunit.assert" Version="2.3.1" />
     <PackageReference Include="xunit.core" Version="2.3.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
@@ -17,5 +17,4 @@
   <ItemGroup>
     <ProjectReference Include="..\toofz.ActivityTracing\toofz.ActivityTracing.csproj" />
   </ItemGroup>
-
 </Project>
